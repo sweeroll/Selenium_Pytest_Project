@@ -4,7 +4,14 @@ fake = Faker("Ru-ru")
 
 
 class SignUpData:
-    def __init__(self, login=None, password=None, email=None, first_name=None, last_name=None):
+    def __init__(
+            self,
+            login=None,
+            password=None,
+            email=None,
+            first_name=None,
+            last_name=None
+    ):
         self.login = login
         self.password = password
         self.email = email

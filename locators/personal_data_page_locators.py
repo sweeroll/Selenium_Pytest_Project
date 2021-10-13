@@ -19,7 +19,9 @@ class PersonalDataPageLocators:
 
 
 class PersonalDataPageMoreLocators:
-    MORE_SECTION_BUTTON = (By.XPATH, "//*[text()='Дополнительная информация об имени']")
+    MORE_SECTION_BUTTON = (
+        By.XPATH, "//*[text()='Дополнительная информация об имени']"
+    )
     NAME_PHONETIC = (By.ID, "id_firstnamephonetic")
     LAST_NAME_PHONETIC = (By.ID, "id_lastnamephonetic")
     MIDDLE_NAME = (By.ID, "id_middlename")

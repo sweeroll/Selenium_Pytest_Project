@@ -30,7 +30,8 @@ class TestAuth:
         data = AuthData.random()
         app.login.auth(data)
         SCR.screenshot(app)
-        assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(), "We are auth!"
+        assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(),\
+            "We are auth!"
 
     @pytest.mark.parametrize("field", ["login", "password"])
     def test_auth_empty_data(self, app, field):
@@ -45,4 +46,5 @@ class TestAuth:
         setattr(data, field, None)
         app.login.auth(data)
         SCR.screenshot(app)
-        assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(), "We are auth!"
+        assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(),\
+            "We are auth!"

@@ -20,7 +20,9 @@ def app(request):
         chrome_options = Options()
         chrome_options.headless = True
         fixture = Application(
-            webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options),
+            webdriver.Chrome(
+                ChromeDriverManager().install(), options=chrome_options
+            ),
             base_url,
         )
     elif headless_mode == "false":
@@ -51,7 +53,7 @@ def pytest_addoption(parser):
         "--headless",
         action="store",
         default="False",
-        help="enter 'true' if you want run tests in headless mode of browser,\n"
+        help="enter 'true' if you want run tests in headless mode,\n"
              "enter 'false' - if not",
     ),
     parser.addoption(
