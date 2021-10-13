@@ -101,3 +101,4 @@ webencodings==0.5.1
 widgetsnbextension==3.5.1
 yarg==0.1.9
 yarl==1.7.0
+flake8==4.0.1
