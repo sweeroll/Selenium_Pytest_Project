@@ -61,8 +61,12 @@ class LoginPage(BasePage):
 
     def go_to_editing_personal_data(self):
         self.click_element(self.user_menu())
-        self.click_element(self.user_menu_settings())
-        self.click_element(self.find_element(PersonalDataPageLocators.EDIT_INFO))
+        self.click_element(
+            self.user_menu_settings()
+        )
+        self.click_element(self.find_element(
+            PersonalDataPageLocators.EDIT_INFO)
+        )
 
     def auth_login_error(self) -> str:
         return self.find_element(LoginPageLocators.LOGIN_ERROR).text
