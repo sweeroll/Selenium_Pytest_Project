@@ -55,6 +55,6 @@ class BasePage:
 
     def get_page_url(self):
         return self.app.driver.current_url
-     
+
     def click_enter(self, element):
         element.send_keys(Keys.RETURN)

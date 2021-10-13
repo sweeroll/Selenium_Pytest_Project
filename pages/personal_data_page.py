@@ -128,8 +128,8 @@ class PersonalDataPage(BasePage):
             return True
         else:
             return False
-          
-          
+
+
     def set_user_image(self, image_file, user_image_description):
         self.choose_user_image_file(image_file)
         self.input_user_image_description(user_image_description)
