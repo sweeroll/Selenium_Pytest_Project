@@ -56,5 +56,5 @@ class TestSignUp:
         setattr(data, field, None)
         app.sign_up.sign_up(data)
         SCR.screenshot(app)
-        assert not app.sign_up.is_sign_upped(),\
+        assert not app.sign_up.is_sign_upped(), \
             "We are sign up with empty required fields!"
