@@ -45,9 +45,7 @@ class LoginPage(BasePage):
         return self.find_element(BasePageLocators.CONFIRM_EXIT_BUTTON)
 
     def auth(self, data: AuthData):
-        logger.info(f'Auth with Test Data\n'
-                    f'Login is {data.login}\n'
-                    f'Password {data.password}\n')
+        logger.info(f'User login is "{data.login}, user password {data.password}"')
         if self.is_auth():
             self.click_element(self.user_menu())
             self.click_element(self.exit())
@@ -63,9 +61,7 @@ class LoginPage(BasePage):
     def go_to_editing_personal_data(self):
         self.click_element(self.user_menu())
         self.click_element(self.user_menu_settings())
-        self.click_element(
-            self.find_element(PersonalDataPageLocators.EDIT_INFO)
-        )
+        self.click_element(self.find_element(PersonalDataPageLocators.EDIT_INFO))
 
     def auth_login_error(self) -> str:
         return self.find_element(LoginPageLocators.LOGIN_ERROR).text
