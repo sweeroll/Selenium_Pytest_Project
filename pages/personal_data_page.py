@@ -287,7 +287,7 @@ class PersonalDataPageOptional(BasePage):
     def edit_personal_data_optional(self, data):
         logger.info(
             f"Editing basic personal data with next values:\n"
-            f"Individual number: {data.individual_number}\n"
+            f"Individual number: {data.individualnumber}\n"
             f"Institution: {data.institution}\n"
             f"Department: {data.department}\n"
             f"Email_display_mode: {data.email_display_mode}\n"
