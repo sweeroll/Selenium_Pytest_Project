@@ -47,7 +47,7 @@ class LoginPage(BasePage):
     def auth(self, data: AuthData):
         logger.info(f'Auth with Test Data\n'
                     f'User login is "{data.login}\n'
-                    f'User password {data.password}\n"')
+                    f'User password {data.password}\n')
         if self.is_auth():
             self.click_element(self.user_menu())
             self.click_element(self.exit())
