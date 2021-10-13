@@ -28,7 +28,7 @@ class TestPersonalData:
         assert app.personal_data.is_changed(), "Personal data not changed!"
 
     @pytest.mark.parametrize("field", ["name", "last_name", "email"])
-    def test_edit_basic_personal_data_without_required_field(self, app, auth, field):
+    def test_edit_personal_data_without_required_field(self, app, auth, field):
         """
         Steps
         1. Open auth page
@@ -48,7 +48,7 @@ class TestPersonalData:
         ), "Personal data should not be changed!"
 
     @pytest.mark.parametrize("email", ["sweeroll.ru", "@mail.ru", "111"])
-    def test_edit_basic_personal_data_with_incorrect_email(self, app, auth, email):
+    def test_edit_personal_data_with_incorrect_email(self, app, auth, email):
         """
         Steps
         1. Open auth page
@@ -122,7 +122,8 @@ class TestPersonalData:
         personal_data = PD.random()
         app.personal_data_more.edit_personal_data_more(personal_data)
         SCR.screenshot(app)
-        assert app.personal_data_more.is_changed(), "Personal data not changed!"
+        assert app.personal_data_more.is_changed(), \
+            "Personal data not changed!"
 
     def test_valid_edit_optional_personal_data(self, app, auth):
         """
@@ -139,7 +140,8 @@ class TestPersonalData:
         personal_data = PD.random()
         app.personal_data_optional.edit_personal_data_optional(personal_data)
         SCR.screenshot(app)
-        assert app.personal_data_optional.is_changed(), "Personal data not changed!"
+        assert app.personal_data_optional.is_changed(), \
+            "Personal data not changed!"
 
     def test_valid_edit_tag_personal_data(self, app, auth):
         """

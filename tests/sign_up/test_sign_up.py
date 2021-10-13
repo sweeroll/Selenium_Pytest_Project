@@ -11,7 +11,8 @@ class TestSignUp:
         Steps
         1. Open Login page
         2. Click the "Создать учетную запись" button
-        3. Fill in the required fields: Login, Password, Email (with mask xxxx@xxxx.xx), Email Again,
+        3. Fill in the required fields:
+        Login, Password, Email (xxxx@xxxx.xx), Email Again,
         First_name, Second_name
         6. Click the "Создать мой новый аккаунт" button
         7. Check email sending error
@@ -32,16 +33,21 @@ class TestSignUp:
         SCR.screenshot(app)
         assert app.sign_up.check_new_account_log_in(), "We are not auth"
 
-    @pytest.mark.parametrize("field", ["login", "password", "email", "first_name", "last_name"])
+    @pytest.mark.parametrize("field", [
+        "login", "password", "email", "first_name", "last_name"
+    ]
+                             )
     def test_invalid_sign_up_data(self, app, field):
         """
         Steps
         1. Open Login page
         2. Click the "Создать учетную запись" button
-        3. Fill in the required fields: Login, Password, Email (with mask xxxx@xxxx.xx), Copy of Email,
+        3. Fill in the required fields:
+         Login, Password, Email (xxxx@xxxx.xx), Copy of Email,
         First_name, Second_name, Each field separately
         4. Click the "Создать мой новый аккаунт" button
-        5. Check error, registration of a new user without empty required fields
+        5. Check error, registration of a new user
+        without empty required fields
         """
 
         app.open_auth_page()
@@ -50,4 +56,5 @@ class TestSignUp:
         setattr(data, field, None)
         app.sign_up.sign_up(data)
         SCR.screenshot(app)
-        assert not app.sign_up.is_sign_upped(), "We are sign up with empty required fields!"
+        assert not app.sign_up.is_sign_upped(), \
+            "We are sign up with empty required fields!"

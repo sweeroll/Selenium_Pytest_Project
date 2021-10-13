@@ -3,7 +3,8 @@ class LoginConstants:
 
 
 class SignUpConstants:
-    SIGN_UP_PAGE_URL = "https://qacoursemoodle.innopolis.university/login/signup.php?"
+    SIGN_UP_PAGE_URL = "https://qacoursemoodle.innopolis.university" \
+                       "/login/signup.php?"
 
 
 class PersonalDataConstants:

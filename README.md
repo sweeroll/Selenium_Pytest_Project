@@ -1,4 +1,4 @@
-# Проект по тестированию с использованием Selenium + Pytest 
+# Проект по тестированию с использованием Selenium + Pytest
 https://qacoursemoodle.innopolis.university
 
 

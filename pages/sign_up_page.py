@@ -3,6 +3,9 @@ from selenium.webdriver.remote.webelement import WebElement
 from common.constants import SignUpConstants
 from locators.sign_up_page_locators import SignUpLocators
 from pages.base_page import BasePage
+import logging
+
+logger = logging.getLogger("moodle")
 
 
 class SignUp(BasePage):
@@ -40,6 +43,14 @@ class SignUp(BasePage):
         return self.find_element(SignUpLocators.SEND_EMAIL_AGAIN_BUTTON)
 
     def sign_up(self, data):
+        logger.info(
+            f"Sign up with Test Data:\n"
+            f"Login: {data.login}\n"
+            f"Password: {data.password}\n"
+            f"Firstname: {data.first_name}\n"
+            f"Lastname: {data.last_name}\n"
+            f"Email: {data.email}\n"
+        )
         self.fill_element(self.login_id_input(), data.login)
         self.fill_element(self.password_id_input(), data.password)
         self.fill_element(self.email_id_input(), data.email)

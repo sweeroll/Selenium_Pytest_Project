@@ -19,7 +19,9 @@ class PersonalDataPageLocators:
 
 
 class PersonalDataPageMoreLocators:
-    MORE_SECTION_BUTTON = (By.XPATH, "//*[text()='Дополнительная информация об имени']")
+    MORE_SECTION_BUTTON = (
+        By.XPATH, "//*[text()='Дополнительная информация об имени']"
+    )
     NAME_PHONETIC = (By.ID, "id_firstnamephonetic")
     LAST_NAME_PHONETIC = (By.ID, "id_lastnamephonetic")
     MIDDLE_NAME = (By.ID, "id_middlename")
@@ -46,4 +48,3 @@ class PersonalDataPageTagLocators:
     USER_IMAGE_FILE_CHOOSE_INPUT = (By.CSS_SELECTOR, "input[type='file']")
     DOWNLOAD_FILE_BUTTON = (By.CLASS_NAME, "fp-upload-btn")
     USER_PROFILE_DEFAULT_PICTURE = (By.CLASS_NAME, "defaultuserpic")
-    
