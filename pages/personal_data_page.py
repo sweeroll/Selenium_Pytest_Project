@@ -285,6 +285,16 @@ class PersonalDataPageOptional(BasePage):
         self.click_element(self.submit_button())
 
     def edit_personal_data_optional(self, data):
+        logger.info(
+            f"Editing basic personal data with next values:\n"
+            f"Individual number: {data.individual_number}\n"
+            f"Institution: {data.institution}\n"
+            f"Department: {data.department}\n"
+            f"Email_display_mode: {data.email_display_mode}\n"
+            f"Phone1: {data.phone1}\n"
+            f"Phone2: {data.phone2}\n"
+            f"Address: {data.address}\n")
+
         self.open_info()
         self.individual_number_input(data.individualnumber)
         self.institution_input(data.institution)

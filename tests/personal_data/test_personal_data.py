@@ -3,7 +3,7 @@ import os.path
 import pytest
 
 import common.screenshot_def as SCR
-from models.personal_data import PersonalData as PD
+from models.personal_data import PersonalData as Pd
 
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
@@ -22,7 +22,7 @@ class TestPersonalData:
         6. Check successfully editing
         """
         app.login.go_to_editing_personal_data()
-        personal_data = PD.random()
+        personal_data = Pd.random()
         app.personal_data.edit_personal_data(personal_data)
         SCR.screenshot(app)
         assert app.personal_data.is_changed(), "Personal data not changed!"
@@ -39,7 +39,7 @@ class TestPersonalData:
         6. Check editing is not successfully
         """
         app.login.go_to_editing_personal_data()
-        personal_data = PD.random()
+        personal_data = Pd.random()
         setattr(personal_data, field, "")
         app.personal_data.edit_personal_data(personal_data)
         SCR.screenshot(app)
@@ -59,7 +59,7 @@ class TestPersonalData:
         6. Check editing is not successfully
         """
         app.login.go_to_editing_personal_data()
-        data = PD.random()
+        data = Pd.random()
         setattr(data, "email", email)
         app.personal_data.edit_personal_data(data)
         SCR.screenshot(app)
@@ -73,8 +73,8 @@ class TestPersonalData:
             ["123", "123"],
             ["---", "---"],
             ["\xbdR6\x10\x7f", "\xbdR6\x10\x7f"],
-            [PD().random().url, PD().random().url],
-            [PD().random().image_url, PD().random().image_url],
+            [Pd().random().url, Pd().random().url],
+            [Pd().random().image_url, Pd().random().image_url],
         ],
     )
     @pytest.mark.xfail
@@ -90,7 +90,7 @@ class TestPersonalData:
         6. Check editing is not successfully
         """
         app.login.go_to_editing_personal_data()
-        personal_data = PD.random()
+        personal_data = Pd.random()
         setattr(personal_data, "name", name)
         setattr(personal_data, "last_name", last_name)
         app.personal_data.edit_personal_data(personal_data)
@@ -119,7 +119,7 @@ class TestPersonalData:
         6. Check successfully editing
         """
         app.login.go_to_editing_personal_data()
-        personal_data = PD.random()
+        personal_data = Pd.random()
         app.personal_data_more.edit_personal_data_more(personal_data)
         SCR.screenshot(app)
         assert app.personal_data_more.is_changed(), \
@@ -137,7 +137,7 @@ class TestPersonalData:
         """
         app.open_main_page()
         app.login.go_to_editing_personal_data()
-        personal_data = PD.random()
+        personal_data = Pd.random()
         app.personal_data_optional.edit_personal_data_optional(personal_data)
         SCR.screenshot(app)
         assert app.personal_data_optional.is_changed(), \
@@ -155,7 +155,7 @@ class TestPersonalData:
         """
         app.open_main_page()
         app.login.go_to_editing_personal_data()
-        personal_data = PD.random()
+        personal_data = Pd.random()
         app.personal_data_tag.edit_personal_data_tag(personal_data)
         SCR.screenshot(app)
         assert app.personal_data_tag.is_changed(), "Personal data not changed!"
