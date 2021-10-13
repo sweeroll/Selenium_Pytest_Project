@@ -117,14 +117,14 @@ class PersonalDataPage(BasePage):
     def edit_personal_data(self, data):
         logger.info(
             f"Editing basic personal data with next values:\n"
-            f"name: {data.name}\n"
-            f"last_name: {data.last_name}\n"
-            f"email: {data.email}\n"
-            f"email_display_mode: {data.email_display_mode}\n"
-            f"city: {data.city}\n"
-            f"country_code: {data.country_code}\n"
-            f"timezone: {data.timezone}\n"
-            f"about: {data.about}\n"
+            f"Name: {data.name}\n"
+            f"Last_name: {data.last_name}\n"
+            f"Email: {data.email}\n"
+            f"Email_display_mode: {data.email_display_mode}\n"
+            f"City: {data.city}\n"
+            f"Country_code: {data.country_code}\n"
+            f"Timezone: {data.timezone}\n"
+            f"About: {data.about}\n"
         )
         self.input_name(data.name)
         self.input_lastname(data.last_name)

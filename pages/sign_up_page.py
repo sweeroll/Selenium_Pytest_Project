@@ -45,11 +45,11 @@ class SignUp(BasePage):
     def sign_up(self, data):
         logger.info(
             f"Sign up with Test Data:\n"
-            f"login: {data.login}\n"
-            f"password: {data.password}\n"
-            f"firstname: {data.first_name}\n"
-            f"lastname: {data.last_name}\n"
-            f"email: {data.email}\n"
+            f"Login: {data.login}\n"
+            f"Password: {data.password}\n"
+            f"Firstname: {data.first_name}\n"
+            f"Lastname: {data.last_name}\n"
+            f"Email: {data.email}\n"
         )
         self.fill_element(self.login_id_input(), data.login)
         self.fill_element(self.password_id_input(), data.password)
