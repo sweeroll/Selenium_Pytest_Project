@@ -45,7 +45,8 @@ class LoginPage(BasePage):
         return self.find_element(BasePageLocators.CONFIRM_EXIT_BUTTON)
 
     def auth(self, data: AuthData):
-        logger.info(f'User login is "{data.login}, user password {data.password}"')
+        logger.info(f'Login is {data.login}\n,'
+                    f'Password {data.password}\n')
         if self.is_auth():
             self.click_element(self.user_menu())
             self.click_element(self.exit())
