@@ -1,11 +1,83 @@
-# Selenium_Pytest_Project
+# Проект по тестированию с использованием Selenium + Pytest 
+https://qacoursemoodle.innopolis.university
 
-How to start
 
-Use python 3.8 +
-Create and activate virtual environments
+### How to start
+1. Use python 3.8 +
+2. Create and activate virtual environments
+    ```buildoutcfg
+    python3 -m venv env
+   source env/bin/activate
+    ```
+3. Run in terminal
+   ```buildoutcfg
+    pip install -r requirements.txt
+    ```
+   or install poetry https://python-poetry.org/, then
+    ```buildoutcfg
+    poetry install
+    ```
+3. Run Makefile
+   ```buildoutcfg
+    make pytest
+    ```
 
-```
-python3 -m venv env
-source env/bin/activate
-```
+По завершению тестов откроется отчет allure, инструкция по установке представлена далее.
+
+## Описание проекта
+***
+Целью написания данного набора тестов является проверка корректной работы основного функционала приложения. <br> В данный тестовый набор вошли следующие проверки:
+### Тест проверки формы авторизации
+Позитивная проверка:
+* проверка на то что мы можем авторизоваться в системе с валидным логином и паролем<br>
+
+Негативные проверки:
+* пустой логин
+* пустой пароль
+
+
+__Запуск в файле__: tests/auth/test_auth.py
+
+### Тест по обновлению персональных данных
+Позитивные проверки:
+* заполнение всех полей формы валидными данными
+
+Негативные проверки обязательных полей:
+* поочередное заполнение обязательных полей формы невалидными данными
+
+__Запуск в файле__: \tests\personal_data\test_personal_data.py
+
+### Тест проверки формы регистрации
+Позитивные проверки:
+* заполнение формы валидными данными и авторизация под новым пользователем
+
+Негативные проверки обязательных полей:
+* поочередное заполнение обязательных полей формы невалидными данными и проверка невозможности авторизации под новым пользователем
+
+__Запуск в файле__: tests/sign_up/test_sign_up.py
+
+
+## Создание отчетов при помощи Allure
+***
+Чтобы сгенерировать Allure отчет после прогона тестов необходимо выполнить два шага:
+1. Скачать (установить) _**Allure commandline application**_  на свою операционную систему.
+
+   **Для пользователей Windows** лучше выбрать один из 2-х нижеперечисленных вариантов:
+   1) Установить _**Allure commandline application**_ через _**PowerShell**_ командой:
+   <br>```scoop install allure```<br>
+      смотри [видеоинструкцию](https://www.youtube.com/watch?v=3WuTSDkfuqQ) (таймкод с 0:38 по 1:10)
+   2) Если у вас не установлен scoop, то тогда следует скачать _**Allure commandline application**_ вручную:<br>
+      смотри [видеоинструкцию](https://www.youtube.com/watch?v=3WuTSDkfuqQ) (таймкод с 1:39 по 3:07)
+   3) Также вне зависимости от способа установки _**Allure commandline application**_ на Windows,
+   <br>для работы с **Allure** необходимо будет
+   установить Java - [видеоинструкция](https://www.youtube.com/watch?v=6qASwPL86MM&t=1352s) (таймкод с 7:00 по 8:35)
+
+   **Для пользователей Linux и MacOS** смотрите как установить
+_**Allure commandline application**_ [тут](https://docs.qameta.io/allure/#_installing_a_commandline).
+
+2. Создать данные о выполнении тестов, на основании которых будут сгенерированы отчеты.
+<br>Для этого нужно запускать тесты следующей командой в терминале:<br>```pytest --alluredir=allure_reports```
+
+
+После прогона тестов останется только сгенерировать отчет командой в терминале:
+<br>```allure serve allure_reports```<br>(отчет будет представлен на страничке браузера)
