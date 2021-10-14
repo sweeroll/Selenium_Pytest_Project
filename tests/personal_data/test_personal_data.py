@@ -107,23 +107,6 @@ class TestPersonalData:
             for image in os.listdir(user_images_directory)
         ],
     )
-    def test_valid_edit_more_personal_data(self, app, auth, image_file):
-        """
-        Steps
-        1. Open auth page
-        2. Auth with valid data
-        3. Check auth result
-        4. Go to page with editing personal data
-        5. Edit additional personal data with valid data
-        5. Edit user image
-        6. Check successfully editing
-        """
-        app.login.go_to_editing_personal_data()
-        personal_data = Pd.random()
-        app.personal_data_more.edit_personal_data_more(personal_data)
-        SCR.screenshot(app)
-        assert app.personal_data_more.is_changed(), \
-            "Personal data not changed!"
 
     def test_valid_edit_optional_personal_data(self, app, auth):
         """
